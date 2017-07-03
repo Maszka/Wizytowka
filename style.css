@@ -51,7 +51,7 @@ header {
     background: url("background.jpg");
     height: 480px;
 
-    background-size: 100%;
+    background-size: cover;
     padding-top: 10px;
 }
 
