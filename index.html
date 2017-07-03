@@ -25,6 +25,20 @@
 <div id="content">
     There will be something nice here
 </div>
+<div id="wojtek">
+
+    <img class="bordered"/>
+    <img class="bordered"/>
+    <img class="bordered"/>
+    <br>
+    <img class="bordered"/>
+    <img class="bordered"/>
+    <img class="bordered"/>
+    <br>
+    <img class="bordered"/>
+    <img class="bordered"/>
+    <img class="bordered"/>
+</div>
 <footer>
     <div id="footer1">
         footer1
@@ -82,5 +96,38 @@
         </ul>
     </div>
 </footer>
+<script>
+    var elements = document.getElementsByClassName("bordered");
+
+    console.log(elements);
+    var counter = 1;
+    for (var f = 0; f < elements.length; f++) {
+        elements[f].addEventListener("click", function () {
+            if (this.src === "") {
+                if (counter % 2 === 0) {
+                    this.src = "circle.PNG";
+                }
+                else {
+                    this.src = "cross.PNG";
+                }
+                if (isGameOver()) {
+                    setTimeout(function () {
+                        alert("Game over!")
+                    }, 2);
+                }
+                counter++
+            }
+        })
+    }
+
+    function isGameOver() {
+        for (var f = 0; f < elements.length; f++) {
+            if (elements[f].src === "") {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
 </body>
 </html>

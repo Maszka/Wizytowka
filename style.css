@@ -50,6 +50,7 @@ body {
 header {
     background: url("background.jpg");
     height: 480px;
+
     background-size: 100%;
     padding-top: 10px;
 }
@@ -129,4 +130,16 @@ footer ul a {
     display: inline;
     margin-right: 20px;
 
+}
+
+.bordered {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+}
+
+#wojtek {
+    width: 318px;
+    margin-left: auto;
+    margin-right: auto;
 }
