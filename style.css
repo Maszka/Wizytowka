@@ -91,12 +91,12 @@ footer ul {
     padding: 0;
     letter-spacing: 1px;
     text-transform: none;
-    text-decoration: none;
 
 }
 
 footer ul a {
     color: rebeccapurple;
+    text-decoration: none;
 }
 
 #footer1 {
