@@ -169,4 +169,5 @@ footer ul a {
     background-color: #f44336;
     color: white;
     margin-bottom: 15px;
+    display: none;
 }

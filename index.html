@@ -38,24 +38,26 @@
     <img class="bordered"/>
     <img class="bordered"/>
 </div>
-<div class="alert-div">
-    This is an alert box.
+<div>
+    <div class="alert-div" id="winning-alert">
+
+    </div>
 </div>
 <footer>
     <div id="footer1">
         footer1
         <ul>
             <li>
-                <a href="url">Link1</a>
+                <a href="#url">Link1</a>
             </li>
             <li>
-                <a href="url">Link2</a>
+                <a href="#url">Link2</a>
             </li>
             <li>
-                <a href="url">Link3</a>
+                <a href="#url">Link3</a>
             </li>
             <li>
-                <a href="url">Link4</a>
+                <a href="#url">Link4</a>
             </li>
         </ul>
     </div>
@@ -100,6 +102,8 @@
 </footer>
 <script>
     var elements = document.getElementsByClassName("bordered");
+    var divAlert = document.getElementById("winning-alert");
+    console.log(divAlert);
     var counter = 1;
     for (var f = 0; f < elements.length; f++) {
         elements[f].addEventListener("click", function () {
@@ -112,14 +116,12 @@
                 }
 
                 if (isGameOver("cross.PNG")) {
-                    setTimeout(function () {
-                        alert("Cross won!")
-                    }, 20);
+                    divAlert.style.display = "block";
+                    divAlert.innerHTML = "Cross won"
                 }
                 if (isGameOver("circle.PNG")) {
-                    setTimeout(function () {
-                        alert("Circle won!")
-                    }, 20);
+                    divAlert.style.display = "block";
+                    divAlert.innerHTML = "Circle won"
                 }
                 counter++
             }
@@ -128,28 +130,28 @@
 
 
     function isGameOver(znak) {
-        if(isLineFull(znak, 0))
+        if (isLineFull(znak, 0))
             return true;
 
-        if(isLineFull(znak, 1))
+        if (isLineFull(znak, 1))
             return true;
 
-        if(isLineFull(znak, 2))
+        if (isLineFull(znak, 2))
             return true;
 
-        if(isColumnFull(znak, 0))
+        if (isColumnFull(znak, 0))
             return true;
 
-        if(isColumnFull(znak, 1))
+        if (isColumnFull(znak, 1))
             return true;
 
-        if(isColumnFull(znak, 2))
+        if (isColumnFull(znak, 2))
             return true;
 
-        if(isDiagonalFull(znak, 0))
+        if (isDiagonalFull(znak, 0))
             return true;
 
-        if(isDiagonalFull(znak, 2))
+        if (isDiagonalFull(znak, 2))
             return true;
 
         return false;
