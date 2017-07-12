@@ -26,7 +26,6 @@
     There will be something nice here
 </div>
 <div id="wojtek">
-
     <img class="bordered"/>
     <img class="bordered"/>
     <img class="bordered"/>
@@ -101,8 +100,6 @@
 </footer>
 <script>
     var elements = document.getElementsByClassName("bordered");
-
-    console.log(elements);
     var counter = 1;
     for (var f = 0; f < elements.length; f++) {
         elements[f].addEventListener("click", function () {
@@ -114,11 +111,6 @@
                     this.src = "cross.PNG";
                 }
 
-                /*if (isGameOver()) {
-                 setTimeout(function () {
-                 alert("Game over!")
-                 }, 2);
-                 }*/
                 if (isGameOver("cross.PNG")) {
                     setTimeout(function () {
                         alert("Cross won!")
