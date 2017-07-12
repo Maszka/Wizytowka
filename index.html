@@ -128,36 +128,36 @@
             }
         })
     }
-    /*function isGameOver() {
-     for (var f = 0; f < elements.length; f++) {
-     if (elements[f].src === "") {
-     return false;
-     }
-     }
-     return true;
-     */
-    /*   function isGameOverCross() {
-     for (var m = 0; m <= 2; m++) {
-     var countLoop = 0;
-     for (var n = m; n < elements.length; n = n + 3) {
-     if (elements[n].src === "cross.PNG") {
-     countLoop++;
-     }
-     if (countLoop === 3) {
-     return true;
-     }
-     }
-     }
-     }*/
-    function isGameOverCross() {
-        for (var m = 0; m <= 2; m++) {
-            for (var n = m; n < elements.length; n = n + 3) {
-                if (elements[n].src === "" || elements[n] === "circle.PNG")
-                    return false;
-            }
+
+
+    function isGameOver(znak) {
+        if(isLineFull(znak, 0))
             return true;
-        }
+
+        if(isLineFull(znak, 1))
+            return true;
+
+        if(isLineFull(znak, 2))
+            return true;
+
+        if(isColumnFull(znak, 0))
+            return true;
+
+        if(isColumnFull(znak, 1))
+            return true;
+
+        if(isColumnFull(znak, 2))
+            return true;
+
+        if(isDiagonalFull(znak, 0))
+            return true;
+
+        if(isDiagonalFull(znak, 2))
+            return true;
+
+        return false;
     }
+
     function isLineFull(znak, index) {
         for (var i = 0; i <= 2; i++) {
             if (!elements[i + index * 3].src.endsWith(znak))
