@@ -39,6 +39,9 @@
     <img class="bordered"/>
     <img class="bordered"/>
 </div>
+<div class="alert-div">
+    This is an alert box.
+</div>
 <footer>
     <div id="footer1">
         footer1
@@ -110,21 +113,69 @@
                 else {
                     this.src = "cross.PNG";
                 }
-                if (isGameOver()) {
+
+                /*if (isGameOver()) {
+                 setTimeout(function () {
+                 alert("Game over!")
+                 }, 2);
+                 }*/
+                if (isGameOverCross()) {
                     setTimeout(function () {
-                        alert("Game over!")
-                    }, 2);
+                        alert("Cross won!")
+                    }, 20);
                 }
                 counter++
             }
         })
     }
-
-    function isGameOver() {
-        for (var f = 0; f < elements.length; f++) {
-            if (elements[f].src === "") {
-                return false;
+    /*function isGameOver() {
+     for (var f = 0; f < elements.length; f++) {
+     if (elements[f].src === "") {
+     return false;
+     }
+     }
+     return true;
+     */
+    /*   function isGameOverCross() {
+     for (var m = 0; m <= 2; m++) {
+     var countLoop = 0;
+     for (var n = m; n < elements.length; n = n + 3) {
+     if (elements[n].src === "cross.PNG") {
+     countLoop++;
+     }
+     if (countLoop === 3) {
+     return true;
+     }
+     }
+     }
+     }*/
+    function isGameOverCross() {
+        for (var m = 0; m <= 2; m++) {
+            for (var n = m; n < elements.length; n = n + 3) {
+                if (elements[n].src === "" || elements[n] === "circle.PNG")
+                    return false;
             }
+            return true;
+        }
+    }
+    function isLineFull(znak, index) {
+        for (var i = 0; i <= 2; i++) {
+            if (!elements[i + index * 3].src.endsWith(znak))
+                return false;
+        }
+        return true;
+    }
+    function isColumnFull(znak, index) {
+        for (var j = 0; j <= 2; j++) {
+            if (!elements[j * 3 + index].src.endsWith(znak))
+                return false;
+        }
+        return true;
+    }
+    function isDiagonalFull(znak, index) {
+        for (var k = 0; k <= 2; k++) {
+            if (!elements[index + (4 - index) * k].src.endsWith(znak))
+                return false;
         }
         return true;
     }
